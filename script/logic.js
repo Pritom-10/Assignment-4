@@ -90,4 +90,38 @@ mainContainer.addEventListener("click", function (e) {
     if (currentStatus == "rej_btn") {
       rejaddDiv();
     }
+  } else if (e.target.classList.contains("rejs_btn")) {
+    const parentNode = e.target.parentNode.parentNode.parentNode;
+    const jobName = parentNode.querySelector(".card-title").innerText;
+    const status = parentNode.querySelector(".notApplied");
+    const positions = parentNode.querySelector(".position").innerText;
+    const salery = parentNode.querySelector(".salery").innerText;
+    const describe = parentNode.querySelector(".describe").innerText;
+
+    status.innerText = "Rejected";
+    status.classList.add("btn-error");
+
+    const cardInfo = {
+      jobName: jobName.trim(),
+      positions,
+      salery,
+      status,
+      describe,
+    };
+
+    const jobExist = rejectedList.find(
+      (item) => item.jobName == cardInfo.jobName,
+    );
+    if (!jobExist) {
+      rejectedList.push(cardInfo);
+    }
+
+    interviewList = interviewList.filter(
+      (item) => item.jobName != cardInfo.jobName,
+    );
+
+    if (currentStatus == "int_btn") {
+      addDiv();
+    }
+    calculateCount();
   }
