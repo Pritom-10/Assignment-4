@@ -124,4 +124,23 @@ mainContainer.addEventListener("click", function (e) {
       addDiv();
     }
     calculateCount();
+  } else if (e.target.classList.contains("apps_btn")) {
+    const parentNode = e.target.parentNode.parentNode.parentNode;
+    const status = parentNode.querySelector(".notApplied");
+    status.innerText = "Applied";
+    status.classList.add("btn-primary");
+  } else if (e.target.classList.contains("fa-regular")) {
+    const parentNode = e.target.parentNode.parentNode.parentNode;
+    const jobName = parentNode.querySelector(".card-title").innerText;
+    interviewList = interviewList.filter((item) => item.jobName !== jobName);
+    rejectedList = rejectedList.filter((item) => item.jobName !== jobName);
+    parentNode.remove();
+    calculateCount();
+    if (currentStatus == "int_btn") {
+      addDiv();
+    }
+    if (currentStatus == "rej_btn") {
+      rejaddDiv();
+    }
   }
+});
