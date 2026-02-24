@@ -144,3 +144,67 @@ mainContainer.addEventListener("click", function (e) {
     }
   }
 });
+
+function addDiv() {
+  generate.innerHTML = "";
+  if (interviewList.length === 0) {
+    document.getElementById("empthy").style.display = "block";
+  } else {
+    document.getElementById("empthy").style.display = "none";
+    for (let part of interviewList) {
+      let div = document.createElement("div");
+      div.className = "card bg-base-100 card-xs shadow-sm mt-4";
+      div.innerHTML = `
+    <div class="p-4 space-y-2">
+          <div class="flex justify-between">
+            <h2 class="card-title">${part.jobName}</h2>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <p class="position text-neutral/50">${part.positions}</p>
+          <p class="salery text-neutral/50">${part.salery}</p>
+          <button class="notApplied btn btn-success">Interviwed</button>
+          <p class="describe text-neutral">${part.describe}</p>
+          <div class="">
+            <button id="card1" onclick="getApplied('card1')" class=" btn btn-outline btn-primary">Applied</button>
+            <button id="interview1" onclick="getInterview('interview1')"
+              class="btn btn-outline btn-success">Interview</button>
+            <button class="btn btn-outline btn-error rejs_btn">Rejected</button>
+          </div>
+        </div>
+   `;
+      generate.appendChild(div);
+    }
+  }
+}
+
+function rejaddDiv() {
+  generate.innerHTML = "";
+  if (rejectedList.length === 0) {
+    document.getElementById("empthy").style.display = "block";
+  } else {
+    document.getElementById("empthy").style.display = "none";
+    for (let cancel of rejectedList) {
+      let div = document.createElement("div");
+      div.className = "card bg-base-100 card-xs shadow-sm mt-4";
+      div.innerHTML = `
+    <div class="p-4 space-y-2">
+          <div class="flex justify-between">
+            <h2 class="card-title">${cancel.jobName}</h2>
+            <i class="fa-regular fa-trash-can"></i>
+          </div>
+          <p class="position text-neutral/50">${cancel.positions}</p>
+          <p class="salery text-neutral/50">${cancel.salery}</p>
+          <button class="notApplied btn btn-error">Rejected</button>
+          <p class="describe text-neutral">${cancel.describe}</p>
+          <div class="">
+            <button id="card1" onclick="getApplied('card1')" class=" btn btn-outline btn-primary">Applied</button>
+            <button id="interview1" onclick="getInterview('interview1')"
+              class="btn btn-outline btn-success">Interview</button>
+            <button class="btn btn-outline btn-error rejs_btn">Rejected</button>
+          </div>
+        </div>
+   `;
+      generate.appendChild(div);
+    }
+  }
+}
