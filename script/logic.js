@@ -177,6 +177,7 @@ function addDiv() {
   }
 }
 
+
 function rejaddDiv() {
   generate.innerHTML = "";
   if (rejectedList.length === 0) {
