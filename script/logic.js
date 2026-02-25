@@ -164,7 +164,7 @@ function addDiv() {
           <p class="salery text-neutral/50">${part.salery}</p>
           <button class="notApplied btn btn-success">Interviwed</button>
           <p class="describe text-neutral">${part.describe}</p>
-          <div class="">
+          <div class="flex gap-2 flex-col sm:flex-row">
             <button id="card1" onclick="getApplied('card1')" class=" btn btn-outline btn-primary">Applied</button>
             <button id="interview1" onclick="getInterview('interview1')"
               class="btn btn-outline btn-success">Interview</button>
@@ -197,7 +197,7 @@ function rejaddDiv() {
           <p class="salery text-neutral/50">${cancel.salery}</p>
           <button class="notApplied btn btn-error">Rejected</button>
           <p class="describe text-neutral">${cancel.describe}</p>
-          <div class="">
+          <div class="flex gap-2 flex-col sm:flex-row">
             <button id="card1" onclick="getApplied('card1')" class=" btn btn-outline btn-primary">Applied</button>
             <button id="interview1" onclick="getInterview('interview1')"
               class="btn btn-outline btn-success">Interview</button>
